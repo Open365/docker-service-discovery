@@ -6,7 +6,7 @@ COPY serf.py /bin/
 ENV SERF_ADVERTISE_IP 172.17.42.1
 ENV SERF_BIND_ADDRESS ""
 
-RUN apk update && apk add python && \
+RUN /scripts-base/buildDependencies.sh --production --install && \
     rm -r /var/cache/apk/* && \
     chmod +x /bin/serf.py
 
